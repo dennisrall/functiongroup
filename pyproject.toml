@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "functiongroup"
+version = "0.1.0"
+description = "Python utility to implement protocols with pure functions"
+authors = ["Dennis Rall <dennis.rall@web.de>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -2,6 +2,7 @@ from typing import Protocol, runtime_checkable
 
 from functiongroup import FunctionGroup
 
+
 @runtime_checkable
 class MyProtocol(Protocol):
 
@@ -10,6 +11,7 @@ class MyProtocol(Protocol):
 
     def func_2(self, arg: int) -> int:
         ...
+
 
 func_group = FunctionGroup()
 
@@ -29,4 +31,3 @@ def test_function_group():
     assert proto.func_1(1, "1") == (1, "1")
     assert proto.func_2(2) == 2
     assert isinstance(proto, MyProtocol)
-

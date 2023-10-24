@@ -10,6 +10,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     environment: release
+    permissions:
+      # This permission is required for trusted publishing.
+      id-token: write
+      contents: read
     steps:
     - name: Checkout project
       uses: actions/checkout@v4
@@ -25,29 +29,13 @@ jobs:
       id: vars
       run: echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
     - name: Mint API token
-      id: mint-token
-      run: |
-        # retrieve the ambient OIDC token
-        resp=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-          "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=pypi")
-        oidc_token=$(jq '.value' <<< "${resp}")
-
-        # exchange the OIDC token for an API token
-        resp=$(curl -X POST https://pypi.org/_/oidc/github/mint-token -d "{\"token\": \"${oidc_token}\"}")
-        api_token=$(jq '.token' <<< "${resp}")
-
-        # mask the newly minted API token, so that we don't accidentally leak it
-        echo "::add-mask::${api_token}"
-
-        # see the next step in the workflow for an example of using this step output
-        echo "api-token=${api_token}" >> "${GITHUB_OUTPUT}"
+      id: mint
+      uses: tschm/token-mint-action@v1.0.2
     - name: Build and publish
       run: |
         poetry version $RELEASE_VERSION
         poetry build
-        poetry config pypi-token.pypi $(PYPI_TOKEN)
         poetry publish --dry-run
-        poetry publish
+        poetry publish -u __token__ -p '${{ steps.mint.outputs.api-token }}'
       env:
-        PYPI_TOKEN: ${{ steps.mint-token.outputs.api-token }}
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}

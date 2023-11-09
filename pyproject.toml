@@ -5,6 +5,7 @@ description = "Python utility to implement protocols with pure functions"
 authors = ["Dennis Rall <dennis.rall@web.de>"]
 license = "MIT"
 readme = "README.md"
+keywords = ["functional", "protocol", "python"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

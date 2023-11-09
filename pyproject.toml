@@ -5,6 +5,11 @@ description = "Python utility to implement protocols with pure functions"
 authors = ["Dennis Rall <dennis.rall@web.de>"]
 license = "MIT"
 readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -16,3 +21,8 @@ pytest = "^7.4.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[project.urls]
+Homepage = "https://github.com/dennisrall/functiongroup"
+Documentation = "https://github.com/dennisrall/functiongroup"
+Repository = "https://github.com/dennisrall/functiongroup"

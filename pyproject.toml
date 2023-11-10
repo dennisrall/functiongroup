@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling >= 1.18.0"]
+build-backend = "hatchling.build"
+
 [tool.poetry]
 name = "functiongroup"
 version = "0.1.0"
@@ -12,18 +16,14 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[project.urls]
+Homepage = "https://github.com/dennisrall/functiongroup"
+Documentation = "https://github.com/dennisrall/functiongroup"
+Repository = "https://github.com/dennisrall/functiongroup"
+
 [tool.poetry.dependencies]
 python = "^3.11"
 
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.2"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[project.urls]
-Homepage = "https://github.com/dennisrall/functiongroup"
-Documentation = "https://github.com/dennisrall/functiongroup"
-Repository = "https://github.com/dennisrall/functiongroup"

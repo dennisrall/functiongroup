@@ -5,7 +5,6 @@ from functiongroup import FunctionGroup
 
 @runtime_checkable
 class MyProtocol(Protocol):
-
     def func_1(self, arg: int, arg_2: str) -> tuple[int, str]:
         ...
 

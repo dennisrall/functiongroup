@@ -2,7 +2,6 @@ import functools
 
 
 class FunctionGroup:
-
     def __init__(self):
         self.functions = []
 
@@ -15,5 +14,6 @@ class FunctionGroup:
 
         instance = FunctionGroupInstance()
         for func in self.functions:
-            setattr(instance, func.__name__, functools.partial(func, *args, **kwargs))
+            setattr(instance, func.__name__,
+                    functools.partial(func, *args, **kwargs))
         return instance

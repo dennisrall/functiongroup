@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling >= 1.18.0"]
-build-backend = "hatchling.build"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "functiongroup"
@@ -16,7 +16,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[project.urls]
+[tool.poetry.urls]
 Homepage = "https://github.com/dennisrall/functiongroup"
 Documentation = "https://github.com/dennisrall/functiongroup"
 Repository = "https://github.com/dennisrall/functiongroup"

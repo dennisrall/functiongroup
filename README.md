@@ -1,3 +1,4 @@
+**Moved to the [functools-extra](https://pypi.org/project/functools-extra/) package**
 # functiongroup
 FunctionGroup is a Python utility designed to simplify the implementation of protocols using pure functions. If you've ever found yourself creating classes solely to group related functions when implementing protocols, this package offers an elegant solution.
 
